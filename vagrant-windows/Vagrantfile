@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Configuration de la VM Windows 10 Pro
+  config.vm.define "win10", primary: true do |win10|
+    win10.vm.box = "gusztavvargadr/windows-10"
+    win10.vm.hostname = "win10"
+  end
+
+  # Provisioning PowerShell
+  config.vm.provision "shell", path: "scripts/keyboard.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/network.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/debloat.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/install-npp.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/install-firefox.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/install-chrome.ps1", privileged: false
+  config.vm.provision "shell", reboot: true
+
+  # Configuration VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "8192"       # 8 Go de RAM
+    vb.cpus = 4              # 4 CPU
+    vb.customize ["modifyvm", :id, "--vram", "256"]
+    vb.customize ["modifyvm", :id, "--accelerate-3d", "on"]
+  end
+
+end

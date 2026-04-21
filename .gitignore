@@ -1,0 +1,10 @@
+# Vagrant
+.vagrant/
+*.box
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
