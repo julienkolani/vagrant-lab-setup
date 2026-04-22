@@ -1,43 +1,20 @@
 # Vagrant Lab Setup
 
-Reproducible virtual machine environments using Vagrant and VirtualBox. Contains two configurations: a Linux lab VM provisioned with Docker (8 GB RAM, 8 vCPUs), and a Windows VM setup for cross-platform testing.
+Environnements de machines virtuelles reproductibles avec Vagrant et VirtualBox.
 
-## Features
+## Configurations incluses
 
-- Linux lab VM with automated Docker provisioning (8 GB RAM, 8 vCPUs)
-- Windows VM configuration for cross-platform development and testing
-- Fully reproducible environments via `vagrant up`
+- `labvm/` — VM Linux avec provisioning Docker automatique (8 Go RAM, 8 vCPUs)
+- `vagrant-windows/` — VM Windows pour tests cross-platform
 
-## Tech Stack
+## Stack technique
 
-- Vagrant
-- VirtualBox
-- Docker (provisioned inside Linux VM)
-- Shell provisioning
+- Vagrant, VirtualBox, Bash provisioning
 
-## Setup
-
-Requirements: [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) installed.
-
-**Linux lab VM:**
+## Utilisation
 
 ```bash
 cd labvm
 vagrant up
-```
-
-**Windows VM:**
-
-```bash
-cd vagrant-windows
-vagrant up
-```
-
-## Project Structure
-
-```
-labvm/
-  Vagrantfile    # Linux lab VM: Docker provisioning, 8 GB RAM, 8 vCPUs
-vagrant-windows/
-  Vagrantfile    # Windows VM configuration
+# La VM démarre et installe Docker automatiquement
 ```
